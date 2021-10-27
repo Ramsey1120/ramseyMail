@@ -1,0 +1,407 @@
+/* ------------------ */
+/* CSS Resets */
+/* ------------------ */
+
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins from element */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* removing default list styling */
+ul,ol ,li{
+  list-style: none;
+}
+
+/* removing default link styling */
+a {
+  text-decoration: none;
+}
+
+/* add smooth scroll to the page */
+html,html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* improve text rendering times on the page, at the cost of making the text appear less 'fancy' */
+/* switch this to optimizeLegibility for nicer looking text in the sections that need it */
+body {
+    /* add fullscreen bacgkround image */
+    background-image: url("backround-img.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Roboto', sans-serif;
+    text-rendering: optimizeSpeed;
+    line-height: 1.55;
+    min-height: 100vh;
+}
+
+
+/* make image a block element and responsive */
+img,
+picture,
+small {
+  max-width: 100%;
+  display: block;
+}
+
+/* Make form elements inherit font styling */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove outlines from form inputs */
+input,
+button,a,
+input:focus,
+textarea:focus, textarea:hover, textarea:active 
+{
+  outline: none;
+}
+
+/* give submit buttons a cursor pointer when hovered */
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+
+/* Remove all animations, transitions and smooth scrolling for users who toggle 'prefers reduced motion' ON */
+@media (prefers-reduced-motion: reduce) {
+  
+  html,html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+:root {
+    --clr-dark: 0 0% 0%;
+    --clr-grey: 0 0% 38%;
+    --clr-white: 0 0% 100%;
+
+
+    --border-radius: 15px;
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.container {
+    padding-inline: 1em;
+    margin-inline: auto;
+    width: var(--container-width,90%);
+    max-width: var(--max-width,95vw);
+
+    border-radius: var(--border-radius);
+
+}
+
+.form {
+    background-color: hsl(var(--clr-white));
+    margin: 20vh 1em 1em;
+    padding: 1em;
+    width: 25%;
+
+    box-shadow: 1px 1px 5px 0px hsl(var(--clr-grey));
+}
+
+
+.form, .form > * {
+    border-radius: var(--border-radius);
+}
+
+.form > * {
+    width: 100%;
+}
+
+.legend {
+    font-weight: bold;
+    font-size: 2.05rem;
+    text-align: center;
+}
+
+.form-input {
+    padding: 1em 1.5em;
+    margin: 1.2em 0;
+    border: solid 1px hsl(var(--clr-grey) / .5);
+    transition: box-shadow ease-in-out 250ms;
+}
+
+.form-input:hover, .form-input:focus {
+    box-shadow: 1px 2px 1px 0px hsl(var(--clr-grey));
+}
+
+.small {
+    text-align: center;
+    margin-block: 1em;
+    font-size: .9rem;
+}
+
+.button {
+    padding: 1em;
+    background-color: hsl(var(--clr-grey));
+    color: hsl(var(--clr-white));
+    border: solid 1px hsl(var(--clr-grey));
+    font-weight: bold;
+    transition: box-shadow ease-in-out 350ms, transform ease-in-out 350ms ;
+}
+
+.button:hover {
+    box-shadow: 0px 2px 3px 0px hsl(var(--clr-grey) / .6);
+    transform: translateY(-4px);
+}   
+
+.submit {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+/* inbox page */
+.inbox-container {
+    --width: 95%;
+    --gap: 0;
+    margin: 1em 0;
+}
+
+.user-email {
+    align-items: center;
+    
+    font-weight: bold;
+    border: solid 1px hsl(var(--clr-grey));
+    font-size: 1.2rem;
+    border-bottom-right-radius: var(--border-radius);
+    background-color: hsl(var(--clr-grey));
+    color: hsl(var(--clr-white));
+    padding: 1em;
+    width: 15%;
+} 
+
+.mail-navigation {
+    --border-radius: 30px;
+    flex-basis: 20%;
+    padding-inline: 0;
+
+    flex-direction: column;
+    margin-block: 1em;
+}
+
+.mail-navigation-button {
+    --gap: 0;
+    flex-direction: column;
+}
+
+.mail-button {
+    --gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+
+    cursor: pointer;
+    margin: .5em 0;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+#emails, #single-email, #compose-view {
+    --width: 70%;
+    background-color: hsl(var(--clr-white) / .8);
+}
+
+.mailbox-title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+.auth {
+    border-radius: var(--border-radius);
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+
+.auth a {
+    display: block;
+    background-color: hsl(var(--clr-grey));
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    width: 8em;
+    padding: .5em 1em;
+    color: hsl(var(--clr-white));
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+
+#logout {
+    background-color: red;
+}
+
+
+/*  navigation styling */
+
+.button-group {
+    background-color: var(--secondary-color);
+    padding: var(--spacing);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.button-group button{
+    transform: scale(110%);
+    margin: 0 var(--spacing);
+    padding: calc(var(--spacing) / 2) var(--spacing);
+    font-weight:var(--bold);
+}
+
+
+/* compose form styles */
+
+#compose-form {
+    background-color: initial;
+    border: none;
+    box-shadow: none;
+    padding: 1em;
+    width: 80%;
+    margin: 1em;
+}
+
+#compose-form input[type="submit"] {
+    width: 20%;
+}
+
+.err-msg {
+    color: var(--color-4);
+    background-color: rgb(255, 208, 208);
+    margin: var(--spacing) 0;
+    font-weight: var(--bold);
+    padding: var(--spacing);
+    font-size: .8rem;
+}
+
+
+/*  mail items styling */
+.mail_container {
+    background-color: var(--secondary-color);    
+    padding: var(--spacing);
+}
+
+.mail_item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    color: var(--primary-color);
+
+
+    padding: calc(var(--spacing) / 2) var(--spacing);
+    border: 1px solid rgb(189, 188, 188);
+    background-color: white;
+
+    margin: calc(var(--spacing) / 2) 0;
+}
+
+.mail_item:hover {
+    opacity: .95;
+    cursor: pointer;
+}
+
+.body {
+    align-self: start;
+    margin: var(--spacing);
+}
+
+.body, .sender {
+    font-weight: 500;
+    color: rgb(48, 48, 48);
+}
+
+.sender, .subject {
+    font-weight: var(--bold);
+}
+
+.subject {
+    color: rgb(48, 48, 48);
+    text-align: center;
+}
+
+.timestamp, .sender {
+    font-size: .9rem;
+    align-self: center;
+}
+
+
+ /* styling for each email */
+#single_mail {
+    background: var(--secondary-color);
+    padding: var(--spacing);
+    margin: var(--spacing) 0;
+}
+
+.subject {
+    text-align: left;
+}
+
+
+.reply-archived {
+    margin-top: var(--spacing);
+    text-align: center;
+    font-weight: var(--bold);
+    padding: calc(var(--spacing) / 2);
+    border: 1px solid var(--tertiary-color);
+    color: var(--tertiary-color);
+    width: 20%;
+}
+
+
+.reply-archived:hover {
+    color: var(--secondary-color);
+    border: 1px solid var(--tertiary-color);
+    background: var(--tertiary-color);
+    cursor: pointer;
+}

@@ -1,0 +1,28 @@
+{% extends "mail/layout.html" %}
+
+{% block body %}
+
+
+<form class="form grid register" action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+
+    <legend class="legend">Register</legend>
+
+    {% if message %}
+        <div class="err-list">{{ message }}</div>
+    {% endif %}
+
+    <input class="form-input" type="email" name="email" placeholder="Email Address">
+
+    <input class="form-input" type="password" name="password" placeholder="Password">
+
+    <input class="form-input" type="password" name="confirmation" placeholder="Confirm Password">
+
+    <small class="small">Already have an account? <a href="{% url 'login' %}">Log In here.</a></small>
+
+    <input class="button submit" type="submit" value="Register">
+
+</form>
+
+
+{% endblock %}

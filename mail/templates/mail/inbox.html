@@ -1,0 +1,97 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+<p class="user-email flex">
+    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+        <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+    </svg>
+    {{ request.user.email }}
+</p>
+
+
+<div class="container flex inbox-container">
+    <nav class="container flex mail-navigation">
+
+        <div class="mail-navigation-button flex">
+
+            <button class="button mail-button flex" id="inbox">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-inbox-fill" fill="currentColor"xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M3.81 4.063A1.5 1.5 0 0 1 4.98 3.5h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1-.78.624l-3.7-4.624a.5.5 0 0 0-.39-.188H4.98a.5.5 0 0 0-.39.188L.89 9.312a.5.5 0 1 1-.78-.624l3.7-4.625z" />
+                    <path fill-rule="evenodd"
+                        d="M.125 8.67A.5.5 0 0 1 .5 8.5h5A.5.5 0 0 1 6 9c0 .828.625 2 2 2s2-1.172 2-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .496.562l-.39 3.124a1.5 1.5 0 0 1-1.489 1.314H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z" />
+                </svg>
+                Inbox
+            </button>
+
+            <button class="button mail-button flex" id="compose">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-pen" fill="currentColor"xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5.707 13.707a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391L10.086 2.5a2 2 0 0 1 2.828 0l.586.586a2 2 0 0 1 0 2.828l-7.793 7.793zM3 11l7.793-7.793a1 1 0 0 1 1.414 0l.586.586a1 1 0 0 1 0 1.414L5 13l-3 1 1-3z" />
+                    <path fill-rule="evenodd"
+                        d="M9.854 2.56a.5.5 0 0 0-.708 0L5.854 5.855a.5.5 0 0 1-.708-.708L8.44 1.854a1.5 1.5 0 0 1 2.122 0l.293.292a.5.5 0 0 1-.707.708l-.293-.293z" />
+                    <path d="M13.293 1.207a1 1 0 0 1 1.414 0l.03.03a1 1 0 0 1 .03 1.383L13.5 4 12 2.5l1.293-1.293z" />
+                </svg>
+                Compose
+            </button>
+
+            <button class="button mail-button flex" id="sent">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor"xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                </svg>
+                Sent
+            </button>
+
+            <button class="button mail-button flex" id="archived">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-archive-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM6 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z" />
+                </svg>
+                Archive
+            </button>
+
+        </div>
+
+    </nav>
+
+    <div id="emails" class="container">
+
+
+    </div>
+
+    <div id="single-email" class="container">
+
+    </div>
+
+    <div id="compose-view" class="container">
+        <h3 class="mailbox-title">New Email</h3>
+
+        <form class="form" id="compose-form">     
+            
+            <p> From: <input disabled class="form-control" value="{{ request.user.email }}"></p>
+    
+            To: <input id="compose-recipients">
+        
+            Subject: <input id="compose-subject" placeholder="Subject">
+    
+            <textarea id="compose-body" placeholder="Body"></textarea>    
+
+            <input type="submit" value="Send Mail" class="button" />
+
+        </form>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}
