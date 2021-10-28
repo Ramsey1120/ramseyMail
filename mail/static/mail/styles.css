@@ -211,7 +211,8 @@ input[type="submit"]:hover {
     background-color: hsl(var(--clr-grey));
     color: hsl(var(--clr-white));
     padding: 1em;
-    width: 15%;
+    width: max-content;
+    max-width: 1128px;
 } 
 
 .mail-navigation {
@@ -368,3 +369,45 @@ input[type="submit"]:hover {
     flex-direction: column;
     padding: 1em;
 }
+
+.mail-sender, .mail-body, .mail_item {
+    margin: 1em;
+}
+
+.mail-sender, .mail-body::first-letter {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.mail-body::first-letter, .mail-subject::first-letter  {
+    text-transform: uppercase;
+}
+
+.mail-subject {
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+.mail-timestamp {
+    margin-left: 1em;
+}
+
+.mail-body {
+    font-size: 1.15rem;
+    border-block: solid 1px hsl(var(--clr-grey) / .5);
+    min-height: 25rem;
+    margin-top: .25em;
+}
+
+.reply-archived {
+    justify-content: space-between;
+    margin: .5em;
+    padding: 1em;
+    border-radius: var(--border-radius);
+    width: 20%;
+}
+
+.reply-archived:hover {
+    cursor: pointer;
+}
+

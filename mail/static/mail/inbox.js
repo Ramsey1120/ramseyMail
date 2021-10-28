@@ -123,31 +123,30 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="mail-body">${email.body}</div>
           <div class="mail-timestamp">${email.timestamp}</div>
           <hr>
+            <div class="reply-archived flex button">
+              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-reply-all-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.079 11.9l4.568-3.281a.719.719 0 0 0 0-1.238L8.079 4.1A.716.716 0 0 0 7 4.719V6c-1.5 0-6 0-7 8 2.5-4.5 7-4 7-4v1.281c0 .56.606.898 1.079.62z"/>
+              <path fill-rule="evenodd" d="M10.868 4.293a.5.5 0 0 1 .7-.106l3.993 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a.5.5 0 0 1-.593-.805l4.012-2.954a.493.493 0 0 1 .042-.028.147.147 0 0 0 0-.252.496.496 0 0 1-.042-.028l-4.012-2.954a.5.5 0 0 1-.106-.699z"/>
+              </svg>
+              Reply 
+            </div>`;
 
-          <div class="reply-archived">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-reply-all-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.079 11.9l4.568-3.281a.719.719 0 0 0 0-1.238L8.079 4.1A.716.716 0 0 0 7 4.719V6c-1.5 0-6 0-7 8 2.5-4.5 7-4 7-4v1.281c0 .56.606.898 1.079.62z"/>
-            <path fill-rule="evenodd" d="M10.868 4.293a.5.5 0 0 1 .7-.106l3.993 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a.5.5 0 0 1-.593-.805l4.012-2.954a.493.493 0 0 1 .042-.028.147.147 0 0 0 0-.252.496.496 0 0 1-.042-.028l-4.012-2.954a.5.5 0 0 1-.106-.699z"/>
-            </svg>
-            Reply 
-          </div>
-
-        <div>`
-
-        const archived_button = document.createElement("div")
-        archived_button.className = "reply-archived"
+        const archived_button = document.createElement("div");
+        archived_button.className = "reply-archived";
+        archived_button.classList.add("flex");
+        archived_button.classList.add("button");
 
         var to_archive = true;
 
         if (email.archived === true) {
-          archived_button.innerHTML = `<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-archive-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          archived_button.innerHTML = `<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-archive-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM6 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
-          </svg> Unarchive`;
+          </svg> Unarchive.`;
 
           to_archive = false;
 
         } else {
-          archived_button.innerHTML = `<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-archive-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          archived_button.innerHTML = `<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-archive-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM6 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
           </svg> Archive`;
         }
@@ -158,10 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const reply = document.querySelector(".reply-archived");
         reply.addEventListener("click", () => reply_email(`${email.sender}`, `Re:${email.subject}`, `On "${email.timestamp} ${email.sender} wrote:" ${email.body}`));
-
       });
-
-
 
     // when the user clicks on an email automatically set the read status to true
     fetch(`/emails/${email_id}`, {
