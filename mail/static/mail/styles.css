@@ -1,4 +1,4 @@
-/* ------------------ */
+    /* ------------------ */
 /* CSS Resets */
 /* ------------------ */
 
@@ -308,100 +308,63 @@ input[type="submit"]:hover {
     box-shadow: none;
     padding: 1em;
     width: 80%;
-    margin: 1em;
+    margin: 1em auto;
 }
+
+.compose-input {
+    border: solid 1px hsl(var(--clr-grey) / .6);
+    border-radius: var(--border-radius);
+    margin: .5em 0;
+    padding: .5em 1em;
+}
+
 
 #compose-form input[type="submit"] {
     width: 20%;
+    
 }
 
 .err-msg {
     color: var(--color-4);
     background-color: rgb(255, 208, 208);
-    margin: var(--spacing) 0;
+    margin: .5em 0;
     font-weight: var(--bold);
-    padding: var(--spacing);
+    padding: .5em;
     font-size: .8rem;
 }
 
-
-/*  mail items styling */
-.mail_container {
-    background-color: var(--secondary-color);    
-    padding: var(--spacing);
-}
-
 .mail_item {
-    display: flex;
+    --gap: 0em;
     flex-flow: row nowrap;
     justify-content: space-between;
+    padding: 0em 1em;
+    margin: .85em 0;
+    background-color: hsl(var(--clr-grey) / .7);
+    border-radius: calc(var(--border-radius) * 3);
 
-    color: var(--primary-color);
+    transition: box-shadow ease-in-out 350ms, transform ease-in-out 350ms;
+}
 
+.mail_item > * {
+    align-self: center;
+    font-size: .95rem;
 
-    padding: calc(var(--spacing) / 2) var(--spacing);
-    border: 1px solid rgb(189, 188, 188);
-    background-color: white;
-
-    margin: calc(var(--spacing) / 2) 0;
 }
 
 .mail_item:hover {
-    opacity: .95;
+    opacity: .75;
     cursor: pointer;
-}
-
-.body {
-    align-self: start;
-    margin: var(--spacing);
-}
-
-.body, .sender {
-    font-weight: 500;
-    color: rgb(48, 48, 48);
-}
-
-.sender, .subject {
-    font-weight: var(--bold);
+    box-shadow: 0px 2px 3px 0px hsl(var(--clr-grey) / .6);
+    transform: translateY(-4px);
 }
 
 .subject {
-    color: rgb(48, 48, 48);
-    text-align: center;
+    font-size: 1.2rem;
+    margin: .5em;
 }
 
-.timestamp, .sender {
-    font-size: .9rem;
-    align-self: center;
-}
-
-
- /* styling for each email */
+/* styling for each email */
 #single_mail {
-    background: var(--secondary-color);
-    padding: var(--spacing);
-    margin: var(--spacing) 0;
-}
-
-.subject {
-    text-align: left;
-}
-
-
-.reply-archived {
-    margin-top: var(--spacing);
-    text-align: center;
-    font-weight: var(--bold);
-    padding: calc(var(--spacing) / 2);
-    border: 1px solid var(--tertiary-color);
-    color: var(--tertiary-color);
-    width: 20%;
-}
-
-
-.reply-archived:hover {
-    color: var(--secondary-color);
-    border: 1px solid var(--tertiary-color);
-    background: var(--tertiary-color);
-    cursor: pointer;
+    flex-direction: column;
+    padding: 1em;
 }

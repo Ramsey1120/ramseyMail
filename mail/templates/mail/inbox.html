@@ -62,7 +62,7 @@
 
     </nav>
 
-    <div id="emails" class="container">
+    <div id="emails" class="container flex">
 
 
     </div>
@@ -72,17 +72,18 @@
     </div>
 
     <div id="compose-view" class="container">
+        
         <h3 class="mailbox-title">New Email</h3>
 
         <form class="form" id="compose-form">     
             
-            <p> From: <input disabled class="form-control" value="{{ request.user.email }}"></p>
+            From: <input class="compose-input" disabled value="{{ request.user.email }}">
     
-            To: <input id="compose-recipients">
+            To: <input id="recipients"class="compose-input" id="compose-recipients">
         
-            Subject: <input id="compose-subject" placeholder="Subject">
+            Subject: <input id="subject" class="compose-input" placeholder="Subject">
     
-            <textarea id="compose-body" placeholder="Body"></textarea>    
+            <textarea id="body" class="compose-input" placeholder="Body" rows="10" cols="40"></textarea>    
 
             <input type="submit" value="Send Mail" class="button" />
 
