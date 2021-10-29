@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # generate new key for production
 #SECRET_KEY = '05$4$3aew(8ywondz$g!k4m779pbvn9)euj0zp7-ae*x@4pxr+' 
-
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
@@ -33,13 +32,13 @@ ALLOWED_HOSTS = ['ramsey-mail.herokuapp.com'] # added this for production
 # Application definition
 
 INSTALLED_APPS = [
-    'mail',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mail',
 ]
 
 MIDDLEWARE = [
