@@ -20,13 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # generate new key for production
 # SECRET_KEY = '05$4$3aew(8ywondz$g!k4m779pbvn9)euj0zp7-ae*x@4pxr+' 
 
-SECRET_KEY = os.environ.get(SECRET_KEY)
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  True
 
-ALLOWED_HOSTS = ['https://ramsey-mail.herokuapp.com'] # added this for production
+ALLOWED_HOSTS = ['amsey-mail.herokuapp.com'] # added this for production
 
 
 # Application definition
