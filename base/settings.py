@@ -19,13 +19,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # generate new key for production
-SECRET_KEY = '05$4$3aew(8ywondz$g!k4m779pbvn9)euj0zp7-ae*x@4pxr+' 
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [''] # add host when is time for production
+ALLOWED_HOSTS = ['ramsey-mail.herokuapp.com'] # added this for production
 
 
 # Application definition
@@ -120,3 +120,5 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles") # remember to add before production  
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
