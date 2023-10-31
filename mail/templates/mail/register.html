@@ -1,28 +1,45 @@
 {% extends "mail/layout.html" %}
-
 {% block body %}
+    <main class="form-container">
 
+        <div class="logo logo--main">
+            <svg width="26" height="21" viewBox="0 0 26 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.75 0H3.25C2.38833 0.000947521 1.56221 0.35324 0.952921 0.979576C0.343628 1.60591 0.000921738 2.45514 0 3.34091V17.6591C0.000921738 18.5449 0.343628 19.3941 0.952921 20.0204C1.56221 20.6468 2.38833 20.9991 3.25 21H22.75C23.6117 20.9991 24.4378 20.6468 25.0471 20.0204C25.6564 19.3941 25.9991 18.5449 26 17.6591V3.34091C25.9991 2.45514 25.6564 1.60591 25.0471 0.979576C24.4378 0.35324 23.6117 0.000947521 22.75 0ZM21.9271 5.52622L13.5699 12.208C13.4069 12.3383 13.2064 12.409 13 12.409C12.7936 12.409 12.5931 12.3383 12.4301 12.208L4.07295 5.52622C3.97476 5.45 3.89228 5.35447 3.83032 5.2452C3.76835 5.13593 3.72813 5.01509 3.71199 4.8897C3.69585 4.76431 3.70412 4.63687 3.7363 4.51479C3.76849 4.39271 3.82395 4.27842 3.89948 4.17857C3.975 4.07872 4.06908 3.99529 4.17624 3.93314C4.2834 3.87098 4.40151 3.83134 4.5237 3.81652C4.64589 3.80169 4.76973 3.81198 4.88803 3.84678C5.00632 3.88158 5.1167 3.9402 5.21277 4.01923L13 10.2453L20.7872 4.01923C20.982 3.86807 21.2267 3.80177 21.4686 3.83468C21.7105 3.86758 21.9301 3.99704 22.0799 4.19506C22.2297 4.39308 22.2976 4.64375 22.269 4.89286C22.2404 5.14196 22.1176 5.36949 21.9271 5.52622Z" fill="#6F63F8"/>
+            </svg>
+            Echo<span>Mail</span>
+        </div>
 
-<form class="form grid register" action="{% url 'register' %}" method="POST">
-    {% csrf_token %}
+        <form class="form" action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <legend class="form__legend">Sign up</legend>
 
-    <legend class="legend">Register</legend>
+            <div class="form__cta">Welcome! Create a secure account with <p class="logo">Echo<span>Mail</span></p></div>
 
-    {% if message %}
-        <div class="err-list">{{ message }}</div>
-    {% endif %}
+            {% if message %}
+                <div class="form__error">{{ message }}</div>
+            {% endif %}
 
-    <input class="form-input" type="email" name="email" placeholder="Email Address">
+            <div class="form__group">
+                <label for="email">Email</label>
+                <input autofocus class="form__input" type="email" name="email">
+            </div>
 
-    <input class="form-input" type="password" name="password" placeholder="Password">
+            <div class="form__group">
+                <label for="email">Password</label>
+                <input class="form__input" type="password" name="password">
+            </div>
 
-    <input class="form-input" type="password" name="confirmation" placeholder="Confirm Password">
+            <div class="form__group">
+                <label for="email">Confirm Password</label>
+                <input class="form__input" type="password" name="confirmation">
+            </div>
 
-    <small class="small">Already have an account? <a href="{% url 'login' %}">Log In here.</a></small>
+            <small class="form__small">
+                Already have an account?<br>
+                <a href="{% url 'login' %}">Log In here</a>
+            </small>
 
-    <input class="button submit" type="submit" value="Register">
-
-</form>
-
-
+            <input class="button form__submit" type="submit" value="Register">
+        </form>
+    </main>
 {% endblock %}
